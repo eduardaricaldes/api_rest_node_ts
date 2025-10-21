@@ -42,8 +42,8 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
 
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "verbatimModuleSyntax": false,
     "typeRoots": ["./node_modules/@types"],
     "types": ["node"]

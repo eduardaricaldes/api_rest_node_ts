@@ -1,21 +1,27 @@
 import { Router } from "express"
-import { StatusCodes } from 'http-status-codes'
+
+import { CidadesController } from "../controllers";
+
 
 const router = Router();
 
-router.post('/teste', (req, res)=> {
-
-    console.log(req)
-    return res.status(StatusCodes.CREATED).json(req.body);
-});
+router.post('/cidades', CidadesController.create);
 
 
-router.get('/teste', (req, res)=> {
+router.get('/', (req, res)=> {
     console.log(req.body);
 
     return res.json('kadu guei');
-});  
+}); 
+
 export {router}
+
+
+
+
+
+
+
 
 // res.json - para tratar melhor o que e passado para o front
 
