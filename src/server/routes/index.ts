@@ -5,9 +5,11 @@ import { CidadesController } from "../controllers";
 
 const router = Router();
 
+router.get('/cidades', 
+    CidadesController.getallValidation,CidadesController.getall);
+
 router.post('/cidades', 
-    CidadesController.createValidation, 
-    CidadesController.create);
+    CidadesController.createValidation,CidadesController.create);
 
 
 router.get('/', (req, res)=> {
