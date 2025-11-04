@@ -1,4 +1,4 @@
-// getall - endpooimt que vai chamada p listar toas das cidds do banco
+// getall - endpoint  de listagem das cidds do bd
 import { Request, Response } from "express";
 import * as yup from "yup";
 import { validation } from "../../shared/middleware";
@@ -22,7 +22,7 @@ export const getallValidation = validation((getSchema) => ({
   ),
 }));
 
-export const getall = async(req: Request<{},{},{}, IQueryProps>, res: Response) => {
+export const getAll = async(req: Request<{},{},{}, IQueryProps>, res: Response) => {
   console.log(req.query);
 
   return res.status(StatusCodes.ACCEPTED).send('nao implementado')

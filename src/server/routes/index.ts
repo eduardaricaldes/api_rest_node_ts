@@ -6,17 +6,20 @@ import { CidadesController } from "../controllers";
 const router = Router();
 
 router.get('/cidades', 
-    CidadesController.getallValidation,CidadesController.getall);
+    CidadesController.getallValidation,CidadesController.getAll);
 
 router.post('/cidades', 
     CidadesController.createValidation,CidadesController.create);
 
+router.get('/cidades/:id', 
+    CidadesController.getByIdValidation,CidadesController.getById);
 
-router.get('/', (req, res)=> {
-    console.log(req.body);
+router.put('/cidades/:id', 
+    CidadesController.updateByIdValidation,CidadesController.updateById); 
 
-    return res.json('kadu guei');
-}); 
+router.delete('/cidades/:id', 
+    CidadesController.deletedValidation,CidadesController.deleteById);
+
 
 export {router}
 
