@@ -1,7 +1,7 @@
 import express from 'express';
-import './shared/services/TranslateYup.js'
+import './shared/services/TranslateYup'
 
-import { router } from './routes/index.js';
+import { router } from './routes/index';
 import "dotenv/config";
 
 
