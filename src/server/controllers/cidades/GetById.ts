@@ -11,13 +11,22 @@ export interface IParamsProps {
 export const getByIdValidation = validation((getSchema) => ({
   params: getSchema<IParamsProps>(
     yup.object({
-     id: yup.number().integer().required().moreThan(0),
+     id: yup.number()
+     .integer()
+     .required()
+     .moreThan(0),
     })
   ),
 }));
 
 export const getById = async(req: Request<IParamsProps>, res: Response) => {
-  console.log(req.params);
+  const idNumber = Number(req.params.id)
+  
+  if (idNumber === 123){
+    return res.status(StatusCodes.NOT_FOUND).json();
+  }
 
-  return res.status(StatusCodes.ACCEPTED).send('foi?')
+  return res.status(StatusCodes.OK).json({
+    id: idNumber
+  })
 };

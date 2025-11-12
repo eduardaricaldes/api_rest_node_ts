@@ -18,5 +18,8 @@ export const createValidation = validation((getSchema) => ({
 
 export const create = async(req: Request<{},{}, ICidade>, res: Response) => {
   console.log(req.body)
-  return res.status(StatusCodes.CREATED).json(1)
+
+  return res.status(StatusCodes.CREATED).json({
+    message: `${req.body.nome} created successfully`
+  })
 };
