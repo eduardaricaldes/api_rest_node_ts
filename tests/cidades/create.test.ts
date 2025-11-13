@@ -12,7 +12,7 @@ describe("Cidades - Create",() => {
         });
         
         expect(testUm.statusCode).toEqual(StatusCodes.CREATED);
-        expect(typeof testUm.body).toBe("object")
+        expect(typeof testUm.body).toEqual("object")
 
     });
 

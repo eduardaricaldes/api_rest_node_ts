@@ -20,5 +20,20 @@ describe("Cidades - Get all ",() => {
         expect(resp.statusCode).toEqual(StatusCodes.BAD_REQUEST);
         expect(resp.body.errors.query).toEqual(`${expectedNotAllowedKeys.join(",")} não permitidos`);
     });
+
+    it('deve buscar todos os registros', async() => {
+      const resp =  await testServer
+        .post("/cidades").send({nome:"Floripa"});
+
+        expect(resp.statusCode).toEqual(StatusCodes.CREATED)
+
+      const respBuscar = await ( testServer.get("/cidades").send());
+
+
+        expect (Number(respBuscar.header['x-total-count'])).toBeGreaterThan(0);
+        expect(respBuscar.statusCode).toEqual(StatusCodes.ACCEPTED);
+        expect(respBuscar.body.cities.length).toBeGreaterThan(0);
+    });
  
 });
+ 

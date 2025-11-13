@@ -24,6 +24,9 @@ export const getallValidation = validation((getSchema) => ({
 export const getAll = async(req: Request<{},{},{}, IQueryProps>, res: Response) => {
   console.log(req.query);
 
+   res.setHeader('access-control-expose-headers', 'x-total-count');
+  res.setHeader('x-total-count', 1);
+
   let page: number;
   let limit: number;
   let filter: string;
@@ -67,8 +70,14 @@ export const getAll = async(req: Request<{},{},{}, IQueryProps>, res: Response) 
   }
 
   return res.status(StatusCodes.ACCEPTED).json({
+    id:1,
+    nome:"Floripa",
     page,
     limit,
-    filter
+    filter,
+    cities: [{
+      id: 1,
+      nome: "Floripa",
+    }]
   });
 };

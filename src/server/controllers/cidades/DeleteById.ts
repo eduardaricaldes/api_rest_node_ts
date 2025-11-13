@@ -18,6 +18,9 @@ export const deletedValidation = validation((getSchema) => ({
 
 export const deleteById = async(req: Request<IParamsProps>, res: Response) => {
   console.log(req.params);
-
-  return res.status(StatusCodes.ACCEPTED).send('foi?')
+  const idNumberMock = Number(req.params.id)
+  if(idNumberMock === 1234){
+    return res.status(StatusCodes.NOT_FOUND).send()
+  }
+  return res.status(StatusCodes.NO_CONTENT).send();
 };
