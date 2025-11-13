@@ -29,6 +29,16 @@ export const updateByIdValidation = validation((getSchema) => ({
 export const updateById = async (req: Request<IParamsProps>, res: Response) => {
   console.log(req.params);
   console.log(req.body)
+  const idNumber = Number(req.params.id)
 
-  return res.status(StatusCodes.ACCEPTED).send("foi?");
+if (idNumber === 123){
+    return res.status(StatusCodes.NOT_FOUND).json();
+  }
+
+ return res.status(StatusCodes.OK).json({
+    message: `${req.body.nome} updated successfully`,
+    id:idNumber
+
+  });
+  
 };
