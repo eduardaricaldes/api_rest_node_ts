@@ -15,7 +15,7 @@ type Tvalidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
 
 export const validation: Tvalidation = (getAllSchemas) => async (req, res, next) => {
     const schemas = getAllSchemas((schema) => schema);
-    const errorsResult: Record<TProperty, Record<string, string>> = {};
+    const errorsResult: Partial<Record<TProperty, Record<string, string>>> = {};
 
     Object.entries(schemas).forEach(([key, schema]) => {
       try {

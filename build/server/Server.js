@@ -1,8 +1,15 @@
-import express from 'express';
-import { router } from './routes/index.js';
-import "dotenv/config.js";
-const server = express();
-server.use(express.json());
-server.use(router);
-export { server };
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.server = void 0;
+const express_1 = __importDefault(require("express"));
+require("./shared/services/TranslateYup");
+const index_1 = require("./routes/index");
+require("dotenv/config");
+const server = (0, express_1.default)();
+exports.server = server;
+server.use(express_1.default.json());
+server.use(index_1.router);
 //# sourceMappingURL=Server.js.map
