@@ -4,8 +4,8 @@ import { ETableNames } from "../../ETableNames";
 
 export async function up(knex: Knex): Promise<void> {
     return knex.schema.createTable(ETableNames.cidade, table => {
-        table.bigIncrements('id').primary().index();
-        table.string('nome',150).primary().index().notNullable();
+        table.bigIncrements('id').index();
+        table.string('nome',150).index().notNullable();
 
         table.comment('tabela usada para armazenar tabelas')
     })

@@ -3,15 +3,15 @@ import * as yup from "yup";
 import { validation } from "../../shared/middleware";
 import { StatusCodes } from "http-status-codes";
 
+import { ICidade } from "../../database/models/Cidade";
+
 // vai receber o id da cdd que vai atualizar
 export interface IParamsProps {
   id?: number;
 }
 
-// vai receber um body nome de cidade
-interface IBodyProps {
-  nome: string;
-}
+export interface IBodyProps extends  Omit<ICidade,'id'> {}
+
 
 export const updateByIdValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(

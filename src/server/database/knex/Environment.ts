@@ -9,7 +9,7 @@ export const development: Knex.Config = {
     filename: path.resolve(__dirname, '..', '..', '..', '..', 'database.sqlite')
   },
   migrations: {
-    directory: path.resolve(__dirname, '..', 'migrations'),
+    directory: path.resolve(__dirname, '..', 'knex/migrations'),
   },
   seeds: {
     directory: path.resolve(__dirname, '..', 'seeds'),

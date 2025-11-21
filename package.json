@@ -11,7 +11,7 @@
     "knex:rollback": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback",
     "knex: rollback-all": "knex --knexfile ./src/server/database/knex/Environment.ts migrate:rollback --all",
     "knex:seed": "knex --knexfile ./src/server/database/knex/Environment.ts seed:run",
-    "knex:make": "ts-node ./node_modules/knex/bin/cli.js --knexfile ./src/server/database/knex/environment.ts migrate:make"
+    "knex:make": "ts-node ./node_modules/knex/bin/cli.js --knexfile ./src/server/database/knex/Environment.ts migrate:make"
   },
   "keywords": [],
   "author": "",

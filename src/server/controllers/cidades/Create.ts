@@ -3,13 +3,12 @@ import { Request, Response } from "express";
 import * as yup from "yup";
 import { validation } from "../../shared/middleware";
 import { StatusCodes } from "http-status-codes";
+import { ICidade } from "../../database/models";
 
-export interface ICidade {
-  nome: string;
-}
+export interface IBodyProps extends  Omit<ICidade,'id'> {}
 
 export const createValidation = validation((getSchema) => ({
-  body: getSchema<ICidade>(
+  body: getSchema<IBodyProps>(
     yup.object({
       nome: yup.string().required().min(3),
     })
@@ -17,7 +16,7 @@ export const createValidation = validation((getSchema) => ({
 }));
 
 
-export const create = async(req: Request<{},{}, ICidade>, res: Response) => {
+export const create = async(req: Request<{},{}, IBodyProps>, res: Response) => {
   console.log(req.body)
   return res.status(StatusCodes.CREATED).json({
     message: `${req.body.nome} created successfully`,
